@@ -17,9 +17,9 @@
         <plugin interceptor="com.vip.interceptor.FromDbStatementInterceptor">
 <!--        <plugin interceptor="com.vip.interceptor.PageStatementInterceptorptor">-->
 <!--        <plugin interceptor="com.vip.interceptor.ExamplePlugin">-->
-            <property name="dbType" value="customize"/>
+            <property name="dbType" value="mysql"/>
             <property name="mysqlMethodName" value="com.vip.dao.PaperDao.queryMethod"/>
-            <property name="mysqlMethodName" value="SqlMapConfig.xml"/>
+            <property name="mysqlConfigName" value="SqlMapConfig.xml"/>
 
             <property name="customizeClassName" value="com.vip.demo.Test"/>
             <property name="customizeMethodName" value="testCustomize"/>
