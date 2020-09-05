@@ -17,6 +17,7 @@
             #{item}
         </foreach>
      </select>
+     
   替换sql如下：
   <select resultType="Paper" parameterType="java.lang.Integer" id="queryByPage">
    select * from paper
