@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.dao.PaperDao">
+
+    <cache eviction="FIFO" flushInterval="60000" readOnly="true" size="1024"></cache>
+
+    <select id="queryByPage" resultType="com.vip.po.Paper">
+            select * from paper where id != #{id} and paper_name=#{paperName}
+    </select>
+
+    <select id="queryById" parameterType="java.lang.Integer" resultType="com.vip.po.Paper">
+            select * from paper where id = #{id}
+    </select>
+
+    <select id="queryMethod" parameterType="java.lang.String" resultType="java.lang.String">
+            select remark from paper where method_name = #{methodName}
+    </select>
+
+    <select id="queryAll" resultType="com.vip.po.Paper">
+            select * from paper
+    </select>
+
+
+     <select id="queryByPage1" parameterType="java.lang.Integer" resultType="com.vip.po.Paper">
+             select * from paper
+     </select>
+
+     <select id="queryOne" resultType="com.vip.po.Paper" useCache="true">
+
+         select * from paper <if test="id != null"> where id != #{id}</if>
+     </select>
+
+     <select id="queryVirtualSql" parameterType="java.lang.Integer" resultType="com.vip.po.Paper">
+        select * from @template_sql_table@ where id != #{id}
+     </select>
+
+    <select id="queryVirtualSql_1" resultType="com.vip.po.Paper">
+        select * from @template_sql_table@
+         where
+        field = #{id}
+        and field=#{paperName}
+        and field in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+     </select>
+
+</mapper>
