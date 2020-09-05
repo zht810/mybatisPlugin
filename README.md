@@ -18,7 +18,7 @@
         </foreach>
      </select>
      
-  替换sql如下：
+   替换sql如下：
   <select resultType="Paper" parameterType="java.lang.Integer" id="queryByPage">
    select * from paper
      where
@@ -39,4 +39,5 @@
    </if>
    limit 1
 </select>
+ 
 4、这样如果线上复杂sql有问题，只需要修改配置的sql即可，无需重新上线。
